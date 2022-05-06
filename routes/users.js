@@ -49,15 +49,12 @@ router.post('/login', async (req,res)=> {
   
 });
 
-router.get('/protected',authenticate, async (req,res) =>{
-  res.send('protected')
-})
 
 
 
 
 
 /*DELETE user by id */ 
-router.delete('/:id', middleware.validateToken ,userController.v1.deleteUser);
+router.delete('/:id', middleware.validateToken ,userController.v1.deleteUserById);
 
 module.exports = router;
