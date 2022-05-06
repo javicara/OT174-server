@@ -1,4 +1,4 @@
 exports.roleIdsEnum = {
-    ADMIN: 1,
-    STANDARD: 2,
-  };
+  ADMIN: 1,
+  STANDARD: 2,
+};
