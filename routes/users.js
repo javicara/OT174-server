@@ -1,8 +1,11 @@
 var express = require('express');
 var router = express.Router();
 const {createJWTToken} = require('../util/authUtil');
-const bcrypt = require('bcrypt');
 const {authenticate} = require('../middlewares/authMiddleware');
+const userController = require('../controllers/userController');
+const middleware = require('../middlewares/authMiddleware')
+
+
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -54,5 +57,7 @@ router.get('/protected',authenticate, async (req,res) =>{
 
 
 
+/*DELETE user by id */ 
+router.delete('/:id', middleware.validateToken ,userController.v1.deleteUser);
 
 module.exports = router;
